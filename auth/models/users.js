@@ -4,7 +4,7 @@ const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
 const mongoose = require('mongoose');
 
-let secret = 'thisislab11bbq';
+let secret = 'thisislab12bbq';
 
 const Users = mongoose.Schema({
   username: { type: String, required: true },
@@ -12,12 +12,12 @@ const Users = mongoose.Schema({
 });
 
 // mongo pre-save
-Users.pre('save', async function() {
+Users.pre('save', async function () {
   this.password = await bcrypt.hash(this.password, 5);
 });
 
 // anything.statics.whatever === static or class method
-Users.statics.authenticateBasic = async function(username, password) {
+Users.statics.authenticateBasic = async function (username, password) {
   let query = { username };
   let user = await this.findOne(query);
   if (user) {
@@ -33,7 +33,7 @@ Users.statics.authenticateBasic = async function(username, password) {
 };
 
 // anything.methods.whatever === instance method
-Users.methods.generateToken = function() {
+Users.methods.generateToken = function () {
   // Use the user stuff (this) to make a token.
   let userObject = {
     username: this.username,
@@ -41,4 +41,12 @@ Users.methods.generateToken = function() {
   return jwt.sign(userObject, secret);
 };
 
+Users.statics.authenticateWithToken = async function (token) {
+  try {
+    let tokenObject = jwt.verify(token, secret);
+    
+  } catch (e) {
+    throw e.message;
+  }
+};
 module.exports = mongoose.model('users', Users);

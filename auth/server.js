@@ -2,6 +2,8 @@
 
 const express = require('express');
 const basicAuth = require('./middleware/basic-auth-middleware.js');
+const oauth = require('./middleware/oauth-middleware.js');
+const tokenAuth = 'blah';
 const signupRoute = require('./routes/signup.js');
 const signinRoute = require('./routes/signin.js');
 const getUsersRoute = require('./routes/getUsers.js');
@@ -17,6 +19,14 @@ app.post('/signup', signupRoute);
 app.post('/signin', basicAuth, signinRoute);
 
 app.get('/users', basicAuth, getUsersRoute);
+
+app.get('/oauth', oauth, (req, res) => {
+  res.status(200).send(req.token);
+});
+
+app.get('/secretstuff', tokenAuth, (req, res) => {
+  res.status(200).send('welcome back');
+});
 
 module.exports = {
   authServer: app,
