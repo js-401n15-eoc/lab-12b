@@ -6,17 +6,17 @@
 
   <body>
     <main>
-      <a id="oauth" href="#">Login</a>
+      <a id="oauth" href="#">Login with GitHub</a>
     </main>
 
     <script>
       let URL = "https://github.com/login/oauth/authorize";
 
       let options = {
-        client_id: "",
-        redirect_uri: "",
-        scope: "",
-        state: "",
+        client_id: "6dbc3f1b2683ab8d5305",
+        redirect_uri: "http://localhost:3000/oauth",
+        scope: "read:user",
+        state: "401appconsent",
       };
 
       let QueryString = Object.keys(options)
