@@ -6,12 +6,12 @@
 
 ### Links and Resources
 
-- [submission PR](https://github.com/js-401n15-eoc/lab-12a/pull/1)
-- [GitHub Actions](https://github.com/js-401n15-eoc/lab-12a/actions)
+- [submission PR](https://github.com/js-401n15-eoc/lab-12b/pull/1)
+- [GitHub Actions](https://github.com/js-401n15-eoc/lab-12b/actions)
 
 #### Documentation
 
-- [MongoDB docs (MongoDB CRUD Operations)](https://docs.mongodb.com/manual/crud/)
+- [GitHub - Creating an OAuth App](https://developer.github.com/apps/building-oauth-apps/creating-an-oauth-app/)
 
 ### Setup
 
@@ -20,7 +20,7 @@
 - create an .env file on the top level of this repo defining the following variables:
 
 ```
-MONGODB_URI=mongodb://localhost:27017/lab-12a
+MONGODB_URI=mongodb://localhost:27017/lab-12b
 PORT=3000
 ```
 
@@ -32,4 +32,4 @@ PORT=3000
 
 #### UML
 
-![UML Image](lab-12a-UML.png "uml diagram")
+![UML Image](lab-12a-UML.png 'uml diagram')
